@@ -1,0 +1,152 @@
+// reliability model
+
+// component 1
+
+place Pup1 (init = 1)
+place Pdown1
+exp Tfail1 (rate = lambda1)
+imm tcomp1
+
+arc Pup1 to Tfail1
+arc Tfail1 to Pdown1
+arc Pdown1 to tcomp1
+arc tcomp1 to Pup1
+
+// component 2
+
+place Pup2 (init = 1)
+place Pdown2
+exp Tfail2 (rate = lambda2)
+imm tcomp2
+
+arc Pup2 to Tfail2
+arc Tfail2 to Pdown2
+arc Pdown2 to tcomp2
+arc tcomp2 to Pup2
+
+// component 3
+
+place Pup3 (init = 1)
+place Pdown3
+exp Tfail3 (rate = lambda3)
+imm tcomp3
+
+arc Pup3 to Tfail3
+arc Tfail3 to Pdown3
+arc Pdown3 to tcomp3
+arc tcomp3 to Pup3
+
+// component 4
+
+place Pup4 (init = 1)
+place Pdown4
+exp Tfail4 (rate = lambda4)
+imm tcomp4
+
+arc Pup4 to Tfail4
+arc Tfail4 to Pdown4
+arc Pdown4 to tcomp4
+arc tcomp4 to Pup4
+
+// component 5
+
+place Pup5 (init = 1)
+place Pdown5
+exp Tfail5 (rate = lambda5)
+imm tcomp5
+
+arc Pup5 to Tfail5
+arc Tfail5 to Pdown5
+arc Pdown5 to tcomp5
+arc tcomp5 to Pup5
+
+// component 6
+
+place Pup6 (init = 1)
+place Pdown6
+exp Tfail6 (rate = lambda6)
+imm tcomp6
+
+arc Pup6 to Tfail6
+arc Tfail6 to Pdown6
+arc Pdown6 to tcomp6
+arc tcomp6 to Pup6
+
+// component 7
+
+place Pup7 (init = 1)
+place Pdown7
+exp Tfail7 (rate = lambda7)
+imm tcomp7
+
+arc Pup7 to Tfail7
+arc Tfail7 to Pdown7
+arc Pdown7 to tcomp7
+arc tcomp7 to Pup7
+
+// component 8
+
+place Pup8 (init = 1)
+place Pdown8
+exp Tfail8 (rate = lambda8)
+imm tcomp8
+
+arc Pup8 to Tfail8
+arc Tfail8 to Pdown8
+arc Pdown8 to tcomp8
+arc tcomp8 to Pup8
+
+// component 9
+
+place Pup9 (init = 1)
+place Pdown9
+exp Tfail9 (rate = lambda9)
+imm tcomp9
+
+arc Pup9 to Tfail9
+arc Tfail9 to Pdown9
+arc Pdown9 to tcomp9
+arc tcomp9 to Pup9
+
+// component 10
+
+place Pup10 (init = 1)
+place Pdown10
+exp Tfail10 (rate = lambda10)
+imm tcomp10
+
+arc Pup10 to Tfail10
+arc Tfail10 to Pdown10
+arc Pdown10 to tcomp10
+arc tcomp10 to Pup10
+
+// repair
+
+place Pqueue
+place Pcomp
+exp Trepair (rate = mu)
+
+arc Tfail1 to Pqueue
+arc Tfail2 to Pqueue
+arc Tfail3 to Pqueue
+arc Tfail4 to Pqueue
+arc Tfail5 to Pqueue
+arc Tfail6 to Pqueue
+arc Tfail7 to Pqueue
+arc Tfail8 to Pqueue
+arc Tfail9 to Pqueue
+arc Tfail10 to Pqueue
+arc Pqueue to Trepair
+arc Trepair to Pcomp
+arc Pcomp to tcomp1
+arc Pcomp to tcomp2
+arc Pcomp to tcomp3
+arc Pcomp to tcomp4
+arc Pcomp to tcomp5
+arc Pcomp to tcomp6
+arc Pcomp to tcomp7
+arc Pcomp to tcomp8
+arc Pcomp to tcomp9
+arc Pcomp to tcomp10
+
+reward avail ifelse(#Pqueue >= 5, 0, 1)

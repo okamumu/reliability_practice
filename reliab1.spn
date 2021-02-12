@@ -1,0 +1,14 @@
+// reliability model
+
+place Pup (init = 10)
+place Pdown
+
+exp Tfail (rate = lambda * #Pup)
+exp Trepair (rate = mu)
+
+arc Pup to Tfail
+arc Tfail to Pdown
+arc Pdown to Trepair
+arc Trepair to Pup
+
+reward avail ifelse(#Pup > 5, 1, 0)
