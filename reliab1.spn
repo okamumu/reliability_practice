@@ -11,4 +11,4 @@ arc Tfail to Pdown
 arc Pdown to Trepair
 arc Trepair to Pup
 
-reward avail ifelse(#Pup > 5, 1, 0)
+reward avail ifelse(#Pdown >= 5, 0, 1)
